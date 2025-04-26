@@ -30,36 +30,46 @@ Let's Input numer: `39,12,87,99,56`
 `array: []`
 length = 5
 input: push_front(39)
+
     - length == index
     - array[index] = element(=39)
+  
 output:
-
 `array:[39]`
+
 input: push_front(12)
+
     - length(5) -> i
     - array[_,39,_,_,_] = array[i - 1]
     - array[index] = element(=12)
+  
 output:
+`array:[12,39]`
 
-array:[12,39]
 input: push_front(87)
+
     - length(5) -> i
     - array[_,12,39,_,_] = array[i - 1]
     - array[index] = element(=87)
+    - 
 output:
+`array:[87,12,39]`
 
-array:[87,12,39]
 input: push_front(99)
+
     - length(5) -> i
     - array[_,87,12,39,_] = array[i - 1]
     - array[index] = element(=99)
+  
 output:
-array:[99,87,12,39]
+`array:[99,87,12,39]`
 
 input: push_front(56)
+
     - length(5) -> i
     - array[_,99,87,12,39] = array[i - 1]
     - array[index] = element(=56)
+
 output:
 `array:[56,99,87,12,39]`
 
