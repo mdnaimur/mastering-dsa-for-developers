@@ -24,17 +24,17 @@
 ```
 
 **Input output**
-Let's Input numer: 39,12,87,99,56
+Let's Input numer: `39,12,87,99,56`
 
-Steps: 
-array: []
+#### **Steps:** 
+`array: []`
 length = 5
 input: push_front(39)
     - length == index
     - array[index] = element(=39)
 output:
 
-array:[39]
+`array:[39]`
 input: push_front(12)
     - length(5) -> i
     - array[_,39,_,_,_] = array[i - 1]
@@ -61,15 +61,15 @@ input: push_front(56)
     - array[_,99,87,12,39] = array[i - 1]
     - array[index] = element(=56)
 output:
-array:[56,99,87,12,39]
+`array:[56,99,87,12,39]`
 
-**Final Output:** *[56,99,87,12,39]*
+`**Final Output:** *[56,99,87,12,39]*`
 
 
 ### Time Complexity
-Best Case (O(1))   : *
-Average Case (O(n)): *_______*
-Worst Case (On(n)): *________________*
+Best Case (O(1))   
+Average Case (O(n)): 
+Worst Case (On(n)):
 
 | Scenario      | Complexity    |
 |:--------------|:--------------|
