@@ -96,7 +96,64 @@ output:
   2. Space Comlexity O(1)
 
 ---
+### 2. Insert at the end of a linked list
 
+### Code: 
+
+```python
+def append(self, data):
+        new_node = Node(data)
+        self.size += 1
+
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+            return
+
+        self.tail.next = new_node
+        self.tail = new_node
+```
+
+
+**Input output**
+---
+**Input:**
+Let's Input numer: `75`
+
+**Output:**
+``` 
+75 -->
+```
+**Input **
+Let's Input numer: `105`
+
+**Output:**
+
+```
+75 --> 105 &#8594;
+```
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(n^2))
+- Worst Case (O(n^2))
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(n^2)          |
+|Worst Case     | O(n^2)          |
+|Space          | O(1)          |
+
+* Space complexity O(1) array hold index element once
+  
+##### Suggest optimizations
+* Binary search algorihm best performace
+  1. Time Complexity O(n) 
+  2. Space Comlexity O(1)
+
+---
 ### 6. Check if an array contains all unique values
 
 ### Code:
