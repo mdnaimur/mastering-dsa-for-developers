@@ -4,7 +4,7 @@
 
 ---
 
-### 1. Insert all the beginneing of a dynamic array
+## 1. Insert all the beginneing of a dynamic array
 
 ### Code:
 
@@ -96,7 +96,7 @@ output:
   2. Space Comlexity O(1)
 
 ---
-### 2. Insert at the end of a linked list
+## 2. Insert at the end of a linked list
 
 ### Code: 
 
@@ -124,37 +124,116 @@ Let's Input numer: `75`
 ``` 
 75 -->
 ```
-**Input **
+**Input**
 Let's Input numer: `105`
 
 **Output:**
 
 ```
-75 --> 105 &#8594;
+75 --> 105 -->
+```
+
+**Input**
+Let's Input numer: `115`
+
+**Output:**
+
+```
+75 --> 105 --> 115 -->
+```
+**Input**
+Let's Input numer: `135`
+
+**Output:**
+
+```
+75 --> 105 --> 115 --> 135 -->
 ```
 
 ### Time Complexity
 - Best Case (O(1))   
-- Average Case (O(n^2))
-- Worst Case (O(n^2))
+- Average Case (O(1)
+- Worst Case (O(1)
 
 
 | Scenario      | Complexity    |
 |:--------------|:--------------|
 |Best Case      | O(1)          |
-|Average Case   | O(n^2)          |
-|Worst Case     | O(n^2)          |
+|Average Case   | O(1)          |
+|Worst Case     | O(1)          |
 |Space          | O(1)          |
 
 * Space complexity O(1) array hold index element once
   
 ##### Suggest optimizations
-* Binary search algorihm best performace
-  1. Time Complexity O(n) 
-  2. Space Comlexity O(1)
+* For insertion end of list this approch provide best result
 
 ---
-### 6. Check if an array contains all unique values
+## 5. Delete a node from a singly linked list by value
+
+### Code:
+```python
+def remove(self, data):
+        if not self.head:
+            return False
+
+        if self.head.data == data:
+            self.head = self.head.next
+            self.size -= 1
+            if self.size == 0:
+                self.tail = None
+            return True
+
+        current = self.head
+
+        while current.next:
+            if current.next.data == data:
+                print(f"[DEBUG] inside remove : {current.next.data}")
+                current.next = current.next.next
+                self.size -= 1
+                if not current.next:
+                    self.tail = current
+                return True
+            current = current.next
+        return False
+
+```
+
+**Input output**
+---
+Let's given Linked List Data: 
+```
+75 --> 105 --> 115 --> 135 -->
+```
+**Input:**
+Let's Input numer for Delete: `115`
+
+**Output:**
+``` 
+75 --> 105--> 135 -->
+```
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(n)
+- Worst Case (O(n)
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(n)          |
+|Worst Case     | O(n)          |
+|Space          | O(1)          |
+
+* Space complexity O(1) array hold index element once
+  
+##### Suggest optimizations
+* For deletion nd of linked list this approch provide best result
+
+---
+
+## 6. Check if an array contains all unique values
 
 ### Code:
 ```python
@@ -210,3 +289,103 @@ Message: The array All values are not unique
 
 
 ### 8.  Convert an array into a linked list  
+
+### Code:
+```python
+  def array_to_link_list(self, arr):
+        if not arr:
+            return None
+
+        self.head = Node(arr[0])
+        current = self.head
+        self.size = 1
+
+        for data in arr[1:]:
+            new_node = Node(data)
+            current.next = new_node
+            current = new_node
+            self.size += 1
+
+        self.tail = current
+```
+ 
+**Input output**
+Let's Input array : `arr = [3, 4, 5, 6, 7, 15]`
+
+**Output:**
+array to linkedlist 
+``` 
+ 3 -> 4 -> 5 -> 6 -> 7 -> 15 -> None
+```
+
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(n))
+- Worst Case (O(n))
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(n)          |
+|Worst Case     | O(n)          |
+|Space          | O(1)          |
+
+* Space complexity O(1) array hold index element once
+  
+##### Suggest optimizations
+* None
+
+  
+  
+---
+
+
+
+### 10.  Compare array vs. hash set lookup performance 
+
+what is lookup?
+--  ***searching for a specifict element on a data structure***
+
+Now compare the array and the hashset, who give optimized performance
+**Array:** 
+An Array is Data Structure used programming language to store a collecion of elemets.
+  1. It contains fixed size
+  2. Same type of data
+  3. Order sequence
+  4. Each element has an index number
+   
+
+**HashSet**
+
+*A Hashset is a data structure that stores a collection of unique elements without any particular order.*
+  
+ 1. Unique Elemets
+ 2. Unordered
+ 3. No Indexing 
+
+
+So searching specific elements in a HashSet is more optimized because it has no indexing, so it does not need to search elements index by index like an array does.
+```
+here
+HashSet gives  an O(1) 
+Array gives  an O(n)
+```
+
+
+|               | Array         | Hashset      |
+|:--------------|:--------------|:-------------|
+|Best Case      | O(1)          | O(1)
+|Average Case   | O(n)          | *
+|Worst Case     | O(n)          | O(n) * rearcase
+|Space          | O(1)          | O(1)
+
+
+  
+##### Suggest optimizations
+* None
+
+  
+  
+---
