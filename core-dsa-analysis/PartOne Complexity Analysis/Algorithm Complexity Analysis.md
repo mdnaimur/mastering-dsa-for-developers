@@ -169,6 +169,93 @@ Let's Input numer: `135`
 * For insertion end of list this approch provide best result
 
 ---
+## 3. Search for an element in a Hash set
+
+```python
+def has(self, value):
+        return bool(self.data.get(str(value)))
+
+```
+ 
+**Input output**
+Let's Input numer:
+```
+setA = [1, 2, 3]
+
+```
+
+**Output:**
+``` 
+False: If value not present setA
+True: If value found
+
+```
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(1))
+- Worst Case (O(1))
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(1)          |
+|Worst Case     | O(1)          |
+|Space          | O(1)          |
+
+* Space complexity O(1) array hold index element once
+---
+
+## 4. Rehash a hash table after crossing load factor
+
+```python
+    def _resize(self, new_size):
+        old_table = self.table
+        self.size = new_size
+        self.table = [None] * new_size
+        self.count = 0
+
+        for bucket in old_table:
+            if bucket:
+                for key, value in bucket.entries():
+                    self.set(key, value)
+
+```
+ 
+**Input output**
+Let's Input numer:
+```
+A = [1, 2, 3]
+newSize = 2
+
+```
+
+**Output:**
+``` 
+A = [1, 2, 3,__,__,__]
+
+```
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(n))
+- Worst Case (O(n))
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(n)          |
+|Worst Case     | O(n)          |
+|Space          | O(n)          |
+
+* Space complexity O(n) array hold index element once
+
+
+---
+
+
 ## 5. Delete a node from a singly linked list by value
 
 ### Code:
@@ -287,6 +374,54 @@ Message: The array All values are not unique
   N:B: But Need sort this array first
 ---
 
+## 7. Count common elements in two hash sets
+
+### Code:
+```python
+def intersection(setA, setB):
+    result = HashSet()
+    for value in setA.values():
+        if setB.has(value):
+            result.add(value)
+    return result
+```
+ 
+**Input output**
+Let's Input numer:
+```
+setA = [1, 2, 3]
+setB = [1, 2, 4, 6, 5 ]
+```
+
+**Output:**
+``` 
+Result: [1, 2]
+
+```
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(n))
+- Worst Case (O(n))
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(n)          |
+|Worst Case     | O(n)          |
+|Space          | O(1)          |
+
+* Space complexity O(1) array hold index element once
+  
+##### Suggest optimizations
+*
+
+  
+
+---
+
+
 
 ### 8.  Convert an array into a linked list  
 
@@ -341,6 +476,65 @@ array to linkedlist
   
 ---
 
+
+### 9.  Clone a hash table with chaninig
+
+### Code:
+```python
+      def clone_hashtable(self):
+        new_table = HashTable(self.size)
+        for bucket in self.table:
+            if bucket:
+                for key, value in bucket.entries():
+                    new_table.set(key, value)
+
+        return new_table
+```
+ 
+**Input output**
+Let's Input array : `hashTable =  [('name', 'Naimur'), ('University', 'HUB'), ('City', 'Narayanganj'), ('Country', 'Bangladesh'), ('Phone', '01736842161')] `
+
+
+**Output:**
+copy HashTable
+``` 
+Copy HashTable : 
+ [('name', 'Naimur'), ('University', 'HUB'), ('City', 'Narayanganj'), ('Country', 'Bangladesh'), ('Phone', '01736842161')]
+
+```
+
+### Time Complexity
+- Best Case (O(1))   
+- Average Case (O(n))
+- Worst Case (O(n))
+
+
+| Scenario      | Complexity    |
+|:--------------|:--------------|
+|Best Case      | O(1)          |
+|Average Case   | O(n)          |
+|Worst Case     | O(n)          |
+|Space          | O(n)          |
+
+* Space complexity O(n) new hash table occupy space 
+
+Complexity Breakdown:
+```python
+
+        for bucket in self.table: _________________________ O(m)
+            if bucket:
+                for key, value in bucket.entries(): _______ O(k)
+                    new_table.set(key, value)
+
+O(m+k) = O(n)
+```
+  
+##### Suggest optimizations
+* None
+
+  
+  
+---
 
 
 ### 10.  Compare array vs. hash set lookup performance 
