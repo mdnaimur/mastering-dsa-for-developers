@@ -6,5 +6,5 @@ services:
     container_name: secure_hash_container_linkedList
     volumes:
       - .:/app
-    #command: python main.py
-    command: pytest
+    command: python main.py
+    #command: pytest

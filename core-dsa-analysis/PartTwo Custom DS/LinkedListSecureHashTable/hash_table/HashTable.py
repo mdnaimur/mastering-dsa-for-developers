@@ -20,15 +20,23 @@ class HashTable:
 
     def _resize(self):
         old_table = self.table
+        old_time_set = self.time_set.copy()
         self.size = next_prime(self.size * 2)
         self.table = [None] * self.size
         self.count = 0
+        self._keys = set()
+        self.time_set = {}
 
         for bucket in old_table:
             if bucket:
                 for key, value in bucket.entries():
-                    if not self._is_expired:
-                        self.set(key, value)
+                    if not self._is_expired(key):
+                        if key in old_time_set:
+                            ttl_remaining = old_time_set[key] - time.time()
+                            if ttl_remaining > 0:
+                                self.set(key, value, ttl_remaining)
+                        else:
+                            self.set(key, value)
 
     def _is_expired(self, key):
         timeOut = self.time_set.get(key)
@@ -39,7 +47,8 @@ class HashTable:
 
     def _insert(self, key, value, time_set=None):
         index = self._hash(key)
-        self.table[index] = LinkedList()
+        if self.table[index] is None:
+            self.table[index] = LinkedList()
 
         bucket = self.table[index]
         if bucket.find(key) is None:

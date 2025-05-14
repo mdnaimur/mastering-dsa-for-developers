@@ -1,6 +1,11 @@
+from hash_table.HashTable import HashTable
 import unittest
 import time
-from hash_table.HashTable import HashTable
+# import sys
+# import os
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# sys.path.insert(0, os.path.abspath(
+#     os.path.join(os.path.dirname(__file__), '..')))
 
 
 class TestHashTable(unittest.TestCase):
