@@ -11,6 +11,10 @@
    git clone https://github.com/mdnaimur/mastering-dsa-for-developers.git
 
    ```
+      ``` bash
+   git checkout ds-complexity
+
+   ```
     ``` bash
         inside PartTwo Custom DS
         cd event_driven_linked_list
