@@ -3,7 +3,7 @@
 
  ------
  
-git clone
+
 
 ## Assignments 1
 ### Core Data Structures and Complexity Analysis
